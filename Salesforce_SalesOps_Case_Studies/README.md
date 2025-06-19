@@ -21,5 +21,5 @@ Built tabular, summary, and matrix reports; created charts; and launched a dashb
 
 ---
 
-🔗 [Certification Link (if available)]  
+🔗 https://www.coursera.org/account/accomplishments/specialization/certificate/R8YAKUFKNMZF  
 🎓 Completed via Pathstream Salesforce Sales Operations Program
