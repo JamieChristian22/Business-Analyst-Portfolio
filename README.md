@@ -98,6 +98,6 @@ A Tableau dashboard analyzing Netflix’s global content strategy:
 ## 👨‍💼 About Me
 
 **Jamie Christian II**  
-🔗 [LinkedIn](https://www.linkedin.com/in/jamie-christian-ii-6b7a01232)  
+🔗 [LinkedIn]www.linkedin.com/in/jamiechristianba
 🔗 [GitHub](https://github.com/JamieChristian22)  
-📧 Email: [jamiechri]()
+📧 Email: [jamiechristian331@gmail.com]()
