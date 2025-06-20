@@ -75,8 +75,8 @@ Hands-on Salesforce projects simulating key responsibilities of a Sales Operatio
 - **Opportunity Management:** Updated and tracked sales deals through pipeline stages using the Opportunity Kanban. Created quotes, contracts, and pricing models.  
 - **Reports & Dashboards:** Built tabular, summary, and matrix reports. Visualized sales KPIs and created executive dashboards to drive decision-making.
 
-📁 [View Salesforce Projects Folder](./Salesforce_SalesOps_Case_Studies/README.md)  
-📷 _[Preview image coming soon]_
+📁 [View Salesforce Projects Folder](./Salesforce_SalesOps_Case_Studies/README.md) 
+📷 (https://github.com/JamieChristian22/MyProjects/blob/main/Salesforce_SalesOps_Case_Studies/Copy%20of%20Independent%20Project_%20Use%20Salesforce%20to%20Create%20Reports%20and%20Dashboards.pdf)
 
 ---
 
