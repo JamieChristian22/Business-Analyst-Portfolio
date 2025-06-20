@@ -76,6 +76,7 @@ Hands-on Salesforce projects simulating key responsibilities of a Sales Operatio
 - **Reports & Dashboards:** Built tabular, summary, and matrix reports. Visualized sales KPIs and created executive dashboards to drive decision-making.
 
 📁 [View Salesforce Projects Folder](./Salesforce_SalesOps_Case_Studies/README.md) 
+
 📷 (https://github.com/JamieChristian22/MyProjects/blob/main/Salesforce_SalesOps_Case_Studies/Copy%20of%20Independent%20Project_%20Use%20Salesforce%20to%20Create%20Reports%20and%20Dashboards.pdf)
 
 ---
@@ -90,7 +91,7 @@ Interactive dashboard built using Power BI to visualize:
 - Filtering by gender, job role, and satisfaction level  
 
 🔗 [View on GitHub](https://github.com/JamieChristian22/MyProjects/tree/main/Business%20Intelligence)  
-📷 ![Dashboard Preview](./Business%20Intelligence/HR_Analytics_Preview.png)
+📷 ![Dashboard Preview][(./Business%20Intelligence/HR_Analytics_Preview.png)](https://github.com/JamieChristian22/MyProjects/blob/main/Business%20Intelligence/Power%20BI%20HR%20Dashboard.pdf)
 
 ---
 
@@ -107,7 +108,7 @@ A Tableau dashboard analyzing Netflix’s global content strategy:
 - Interactive filters for genre, rating, and release year  
 
 🔗 [View on Tableau Public](https://public.tableau.com/app/profile/jamie.christian/vizzes)  
-📷 ![Netflix Dashboard Preview](./Business%20Intelligence/Netflix_Dashboard_Tableau_Preview.png)
+📷 ![Netflix Dashboard Preview][https://github.com/JamieChristian22/MyProjects/blob/main/Business%20Intelligence/Netflix.png]
 
 ---
 
