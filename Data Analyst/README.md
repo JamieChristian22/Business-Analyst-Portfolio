@@ -20,7 +20,7 @@ This portfolio highlights my data analytics projects designed to showcase my abi
 - 📌 **Data Cleaning and Preparation** (Excel, R)  
 - 📌 **Exploratory Data Analysis (EDA)**  
 - 📌 **SQL Queries for Data Extraction**  
-- 📌 **Data Visualization** (Excel Charts)  
+- 📌 **Data Visualization** (Excel and Google Sheets Charts)  
 - 📌 **Business Insights and Data Storytelling**
 
 ---
