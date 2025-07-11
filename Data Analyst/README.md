@@ -27,8 +27,9 @@ This portfolio highlights my data analytics projects designed to showcase my abi
 
 ## 📬 Let’s Connect
 
-📧 **Email**: [your.email@example.com]  
-🔗 **LinkedIn**: [linkedin.com/in/yourprofile](https://www.linkedin.com/in/yourprofile/)  
+📧 **Email**: [jamiechristian557@gmail.com]  
+🔗 **LinkedIn**: [linkedin.com/in/yourprofile](www.linkedin.com/in/jamiechristiananalytics
+)  
 
 ---
 
