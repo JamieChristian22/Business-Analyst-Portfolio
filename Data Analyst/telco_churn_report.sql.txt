@@ -1,0 +1,67 @@
+-- Churn Overview
+SELECT 
+  'Churn Overview' AS Section,
+  NULL AS Category,
+  COUNT(*) AS Total_Customers,
+  SUM(CASE WHEN Churn = TRUE THEN 1 ELSE 0 END) AS Churned_Customers,
+  SUM(CASE WHEN Churn = FALSE THEN 1 ELSE 0 END) AS Retained_Customers,
+  ROUND(SUM(CASE WHEN Churn = TRUE THEN 1 ELSE 0 END) * 100.0 / COUNT(*), 2) AS Churn_Rate_Percentage,
+  ROUND(SUM(CAST(TotalCharges AS FLOAT64)) / COUNT(*), 2) AS Avg_Revenue_Per_Customer
+FROM 
+  `model-coral-463616-n9.customer_churn_dataset.telco_churn_cleaned`
+WHERE 
+  SAFE_CAST(TotalCharges AS FLOAT64) IS NOT NULL
+
+UNION ALL
+
+-- Churn by Contract Type
+SELECT 
+  'Churn by Contract Type' AS Section,
+  Contract AS Category,
+  COUNT(*) AS Total_Customers,
+  SUM(CASE WHEN Churn = TRUE THEN 1 ELSE 0 END) AS Churned_Customers,
+  SUM(CASE WHEN Churn = FALSE THEN 1 ELSE 0 END) AS Retained_Customers,
+  ROUND(SUM(CASE WHEN Churn = TRUE THEN 1 ELSE 0 END) * 100.0 / COUNT(*), 2) AS Churn_Rate_Percentage,
+  ROUND(SUM(CAST(TotalCharges AS FLOAT64)) / COUNT(*), 2) AS Avg_Revenue_Per_Customer
+FROM 
+  `model-coral-463616-n9.customer_churn_dataset.telco_churn_cleaned`
+WHERE 
+  SAFE_CAST(TotalCharges AS FLOAT64) IS NOT NULL
+GROUP BY 
+  Contract
+
+UNION ALL
+
+-- Churn by Internet Service
+SELECT 
+  'Churn by Internet Service' AS Section,
+  InternetService AS Category,
+  COUNT(*) AS Total_Customers,
+  SUM(CASE WHEN Churn = TRUE THEN 1 ELSE 0 END) AS Churned_Customers,
+  SUM(CASE WHEN Churn = FALSE THEN 1 ELSE 0 END) AS Retained_Customers,
+  ROUND(SUM(CASE WHEN Churn = TRUE THEN 1 ELSE 0 END) * 100.0 / COUNT(*), 2) AS Churn_Rate_Percentage,
+  ROUND(SUM(CAST(TotalCharges AS FLOAT64)) / COUNT(*), 2) AS Avg_Revenue_Per_Customer
+FROM 
+  `model-coral-463616-n9.customer_churn_dataset.telco_churn_cleaned`
+WHERE 
+  SAFE_CAST(TotalCharges AS FLOAT64) IS NOT NULL
+GROUP BY 
+  InternetService
+
+UNION ALL
+
+-- Churn by Payment Method
+SELECT 
+  'Churn by Payment Method' AS Section,
+  PaymentMethod AS Category,
+  COUNT(*) AS Total_Customers,
+  SUM(CASE WHEN Churn = TRUE THEN 1 ELSE 0 END) AS Churned_Customers,
+  SUM(CASE WHEN Churn = FALSE THEN 1 ELSE 0 END) AS Retained_Customers,
+  ROUND(SUM(CASE WHEN Churn = TRUE THEN 1 ELSE 0 END) * 100.0 / COUNT(*), 2) AS Churn_Rate_Percentage,
+  ROUND(SUM(CAST(TotalCharges AS FLOAT64)) / COUNT(*), 2) AS Avg_Revenue_Per_Customer
+FROM 
+  `model-coral-463616-n9.customer_churn_dataset.telco_churn_cleaned`
+WHERE 
+  SAFE_CAST(TotalCharges AS FLOAT64) IS NOT NULL
+GROUP BY 
+  PaymentMethod;
