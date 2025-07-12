@@ -1,103 +1,41 @@
-# 📁 Business Analyst Portfolio – MyProjects
+# 📊 Jamie Christian | Business, Data, and BI Analyst Portfolio
 
-Welcome to my professional portfolio showcasing hands-on work in **Business Analysis** and **Data Analytics**. This repository contains organized folders of case studies, documentation samples, and visual deliverables created using Excel, Word, Lucidchart, Power BI, Tableau, SQL, and Salesforce.
-
----
-
-## 📚 Table of Contents
-
-- [🧰 Tools Used](#-tools-used)  
-- [🗂 Repository Structure](#-repository-structure)  
-- [🧠 Highlight Project – SQL Case Study](#-highlight-project--sql-case-study)  
-- [💼 Highlight Project – Salesforce Sales Operations](#-highlight-project--salesforce-sales-operations)  
-- [📊 Highlight Project – Power BI Dashboard](#-highlight-project--power-bi-dashboard)  
-- [📈 Highlight Project – Tableau Dashboard](#-highlight-project--tableau-dashboard)  
-- [👨‍💼 About Me](#-about-me)  
-- [🚀 Boost Your Visibility (Optional Enhancements)](#-boost-your-visibility-optional-enhancements)
+Welcome! 👋  
+This portfolio highlights my projects in Business Analysis, Data Analytics, and Business Intelligence. It showcases dashboards, case studies, and process documentation designed to uncover insights, streamline workflows, and support data-driven decision-making.
 
 ---
 
-## 🧰 Tools Used
+## 🗂 Featured Categories
 
-- Microsoft Excel  
-- Microsoft Word  
-- Tableau Public  
-- Lucidchart  
-- Power BI  
-- SQL (MySQL, PostgreSQL)  
-- Salesforce CRM  
-
----
-
-## 🗂 Repository Structure
-
-| Folder | Description |
-|--------|-------------|
-| **Business Analyst Models and Diagrams** | Workflow maps, stakeholder matrices, and use case diagrams |
-| **Business Analytics Excel** | Excel-based analysis with charts, pivot tables, and business metrics |
-| **Business Intelligence** | Visualization files and dashboards built using Tableau and Power BI |
-| **Requirement Documentation Examples** | Sample BRDs, use cases, and requirement elicitation documents |
-| **Requirements Planning Artifacts** | Templates for stakeholder analysis, RACI matrices, and planning tools |
-| **SQL_Customer_Retention_Case_Study** | SQL-based business case exploring sales trends, retention, and churn risk |
-| **Salesforce_SalesOps_Case_Studies** | CRM strategy projects: lead management, opportunity lifecycle, dashboards |
+| 📁 Folder Name                             | Description                                                                                         |
+|---------------------------------------------|-----------------------------------------------------------------------------------------------------|
+| **[Business Analyst Models and Diagrams](./Business%20Analyst%20Models%20and%20Diagrams)** | Visual models and diagrams (BPMN, workflows, ERDs) for clear communication of processes and systems.|
+| **[Business Analytics Excel](./Business%20Analytics%20Excel)**         | Excel-based analytics with pivot tables, charts, and insights for real-world business problems.       |
+| **[Business Intelligence](./Business%20Intelligence)**                 | Power BI and Tableau dashboards for data visualization and reporting.                               |
+| **[Data Analyst](./Data%20Analyst)**                                   | SQL queries, data cleaning, and analysis projects with actionable recommendations.                   |
+| **[Requirement Documentation Examples](./Requirement%20Documentation%20Examples)** | Sample BRDs and documentation supporting business analysis processes.                               |
+| **[Requirements Planning Artifacts](./Requirements%20Planning%20Artifacts)** | Planning documents and artifacts used in BA projects.                                               |
+| **[SQL Customer Retention Case Study](./SQL_Customer_Retention_Case_Study)** | SQL-based analysis to explore customer churn and retention strategies.                               |
+| **[Salesforce SalesOps Case Studies](./Salesforce_SalesOps_Case_Studies)** | Salesforce and Sales Operations-related analysis and documentation.                                  |
 
 ---
 
-## 🧠 Highlight Project – SQL Case Study
+## 🛠 Skills Demonstrated
 
-**📈 SQL Business Analyst Case Study – Customer Retention & Sales Trends**  
-A real-world scenario using SQL to:
-- Identify repeat customers and churn patterns  
-- Analyze average order value and sales by product  
-- Deliver insights using queries, business KPIs, and recommendations  
-
-📁 [View the Project Folder](./SQL_Customer_Retention_Case_Study/README.md)  
-📷 https://github.com/JamieChristian22/MyProjects/tree/main/SQL_Customer_Retention_Case_Study
+- 📌 **Data Cleaning and Analysis** (Excel, SQL, Google Sheets)  
+- 📌 **Business Process Modeling and Documentation** (Lucidchart, BPMN)  
+- 📌 **Data Visualization and Dashboards** (Power BI, Tableau)  
+- 📌 **Requirements Gathering and Stakeholder Collaboration**  
+- 📌 **Strategic Business Insights and Recommendations**  
 
 ---
 
-## 💼 Highlight Project – Salesforce Sales Operations
+## 📬 Let’s Connect
 
-**📁 Salesforce Sales Operations Portfolio – SimplySocial CRM Case Studies**  
-Hands-on Salesforce projects simulating key responsibilities of a Sales Operations Analyst:
-- **Lead Management** – Imported, segmented, and contacted leads; associated campaigns  
-- **Opportunity Management** – Tracked deals, built price books, quotes, and contracts  
-- **Reporting** – Created Salesforce reports and dashboards for decision-making  
-
-📁 [View Salesforce Projects Folder](./Salesforce_SalesOps_Case_Studies/README.md)  
-
-📷 (https://github.com/JamieChristian22/MyProjects/blob/main/Salesforce_SalesOps_Case_Studies/Copy%20of%20Independent%20Project_%20Use%20Salesforce%20to%20Close%20Sales%20Deals.pdf)
+📧 **Email**: [Jamiechristian557@gmail.com]  
+🔗 **LinkedIn**: [linkedin.com/in/jamiechristiananalytics](https://linkedin.com/in/jamiechristiananalytics)  
+🌐 **GitHub Portfolio**: [github.com/JamieChristian22/MyProjects](https://github.com/JamieChristian22/MyProjects)  
 
 ---
 
-## 📊 Highlight Project – Power BI Dashboard: HR Analytics
-
-**📈 HR Analytics Dashboard – Employee Attrition**  
-Interactive dashboard built using Power BI to visualize:
-- Attrition trends by department and tenure  
-- Filters for gender, job role, and satisfaction  
-
-🔗 [View on GitHub](https://github.com/JamieChristian22/MyProjects/tree/main/Business%20Intelligence)  
-📷 (https://github.com/JamieChristian22/MyProjects/blob/main/Business%20Intelligence/Power%20BI%20HR%20Dashboard.pdf)
-
----
-
-## 📈 Highlight Project – Tableau Dashboard
-
-**📈 Netflix Content Analysis Dashboard (Built with Tableau)**  
-A Tableau dashboard analyzing Netflix’s global content strategy:
-- Breakdown of content by genre, release year, and country  
-- Regional trends in original productions  
-- Interactive filters by genre, rating, and year  
-
-🔗 [View on Tableau Public](https://public.tableau.com/app/profile/jamie.christian/vizzes)  
-📷 (https://github.com/JamieChristian22/MyProjects/blob/main/Business%20Intelligence/Netflix.png)
-
----
-
-## 👨‍💼 About Me
-
-**Jamie Christian II**  
-🔗 [LinkedIn]www.linkedin.com/in/jamiechristianba
-🔗 [GitHub](https://github.com/JamieChristian22)  
-📧 Email: [jamiechristian331@gmail.com]()
+⭐ _This portfolio reflects my passion for solving business problems, leveraging data, and enabling informed decision-making._  
