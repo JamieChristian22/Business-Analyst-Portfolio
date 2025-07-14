@@ -32,7 +32,7 @@ This portfolio highlights my projects in Business Analysis, Data Analytics, and 
 
 ## 📬 Let’s Connect
 
-📧 **Email**: [Jamiechristian557@gmail.com]  
+📧 **Email**: [Jamiechristian331@gmail.com]  
 🔗 **LinkedIn**: [linkedin.com/in/jamiechristiananalytics](https://linkedin.com/in/jamiechristiananalytics)  
 🌐 **GitHub Portfolio**: [github.com/JamieChristian22/MyProjects](https://github.com/JamieChristian22/MyProjects)  
 
