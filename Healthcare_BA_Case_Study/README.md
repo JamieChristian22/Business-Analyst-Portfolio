@@ -2,58 +2,54 @@
 
 [![SQL](https://img.shields.io/badge/Skills-SQL-blue)](Healthcare_BA_Case_Study.sql)
 [![Power BI](https://img.shields.io/badge/Skills-PowerBI-yellow)]()
-[![Business Analysis](https://img.shields.io/badge/Skills-Business%20Analysis-green)]()
-[![Healthcare](https://img.shields.io/badge/Domain-Healthcare-red)]()
+[![Business Analysis](https://img.shields.io/badge/Focus-Process%20Improvement-green)]()
+[![Domain](https://img.shields.io/badge/Domain-Healthcare-red)]()
 
 ---
 
-## 🩺 Overview  
-This case study demonstrates how a **Business Analyst** improved **utilization management, care management, and clinical quality reporting** in a healthcare organization.  
+## 🩺 Project Overview  
+This case study demonstrates how a **Business Analyst** applied requirements gathering, process mapping, and data analytics to improve **utilization management (UM)**, **clinical quality reporting (HEDIS/STAR)**, and **nurse workflow efficiency** for a mid-sized health insurer.  
 
-It showcases:  
-✅ Requirements gathering & process mapping  
-✅ SQL-based data analysis  
-✅ Dashboard-style visuals (Power BI style)  
-✅ Measurable business & compliance impact  
+The project highlights measurable impact in **efficiency, compliance, and patient outcomes** through **business analysis and SQL-driven insights**.
 
 ---
 
 ## ⚠️ Business Problem  
-A mid-sized health insurer faced:  
-- ⏳ Delays in **prior authorization approvals**  
-- 📉 Inconsistent **HEDIS/STAR reporting**  
-- 🧑‍⚕️ Nurse case managers overwhelmed with manual entry  
+The organization struggled with:  
+- ⏳ Long **prior authorization turnaround times**  
+- 📉 Inconsistent **clinical quality reporting** (HEDIS/STAR)  
+- 🧑‍⚕️ Manual workloads overwhelming nurse case managers  
 - 🔍 Limited **population health visibility**  
 
 ---
 
 ## 🎯 Objectives  
-1️⃣ Reduce prior authorization turnaround time by **20%**  
-2️⃣ Automate and standardize **HEDIS/STAR measure reporting**  
-3️⃣ Save **nurse time** through workflow optimization  
-4️⃣ Enable **real-time monitoring** of high-risk members  
+- Reduce prior authorization turnaround time by **20%**  
+- Automate and standardize **HEDIS/STAR reporting**  
+- Save nurse case managers **6+ hours per week**  
+- Improve dashboards for **high-risk patient monitoring**  
 
 ---
 
 ## 🔧 Approach  
-- 📑 **Requirements Gathering**: Stakeholder interviews, As-Is/To-Be workflows  
-- 🗄️ **Data Analysis**: SQL + Excel for data extraction and transformation  
-- 📊 **Visualization**: Mock Power BI dashboards built with Matplotlib  
-- ⚙️ **System Configuration**: Auto-approval rules for low-risk requests  
-- 👩‍🏫 **Change Management**: UAT + staff training documentation  
+- **Requirements Gathering** → Stakeholder interviews, As-Is / To-Be workflows (Lucidchart)  
+- **SQL + Data Analysis** → Extracted, cleaned, and aggregated claims & clinical data  
+- **Power BI Mock Dashboards** → Visualized turnaround time, compliance trends, nurse productivity  
+- **System Configuration** → Auto-approval rules for low-risk requests  
+- **Change Management** → UAT + staff training  
 
 ---
 
 ## 🚀 Results  
-| Metric                          | Before | After | Improvement |
-|--------------------------------|--------|-------|-------------|
-| Prior Auth Turnaround (days)   | 10     | 7.3   | **-27%**    |
-| HEDIS Compliance Errors        | High   | Low   | **-40%**    |
-| Nurse Manual Hours Saved       | 0      | 6/wk  | **+6 hrs**  |
-| ER Admissions (high-risk)      | Higher | Lower | Improved     |
+| Metric                          | Before | After | Impact        |
+|--------------------------------|--------|-------|---------------|
+| Prior Auth Turnaround (days)   | 10     | 7.3   | **27% faster** |
+| HEDIS Compliance Errors        | High   | Low   | **-40%**      |
+| Nurse Manual Hours Saved       | 0      | 6/wk  | **+6 hrs**    |
+| ER Admissions (high-risk)      | Higher | Lower | Improved      |
 
-✅ Compliance strengthened with **NCQA / CMS** standards  
-✅ Nurses focused more on **patient care**, less on admin tasks  
+✅ Stronger compliance with **NCQA / CMS**  
+✅ Nurses shifted focus from admin work to **patient care**  
 
 ---
 
@@ -67,24 +63,36 @@ A mid-sized health insurer faced:
 
 ---
 
-## 🛠️ Skills Demonstrated  
-- **Business Analysis**: BRDs, process mapping, stakeholder engagement  
-- **Data Analysis**: SQL, Excel, Power BI-style dashboards  
-- **Healthcare Domain Knowledge**: Utilization management, HEDIS/STAR measures  
-- **Compliance**: NCQA, CMS, HIPAA  
-- **Change Management**: UAT, training, adoption  
+## 🧑‍💻 SQL Script (Excerpt)  
 
----
+```sql
+-- Prior Authorization Turnaround (Before vs After)
+SELECT
+  CASE WHEN request_dt::date < DATE '2025-01-15'
+       THEN 'Before' ELSE 'After' END AS phase,
+  AVG(decision_dt::date - request_dt::date) AS avg_turnaround_days
+FROM healthcare_ba.authorizations
+WHERE decision_dt IS NOT NULL
+  AND decision_status IN ('APPROVED','DENIED')
+GROUP BY phase
+ORDER BY phase;
 
-## 📌 How to Use This Repo  
-1. Open the **PDF** for the full case study  
-2. Review the **SQL script** for analytics queries  
-3. Explore the **visuals** for dashboard storytelling  
-
----
-
-💼 **Created by:** [Your Name]  
-🔗 **LinkedIn:** [Your LinkedIn Profile]  
-📂 **GitHub Portfolio:** [Your GitHub Link]  
-
----
+-- HEDIS Compliance Rate (Monthly %)
+SELECT
+  he.measurement_month,
+  he.measure_id,
+  COUNT(DISTINCT CASE WHEN e.event_dt BETWEEN he.measurement_month
+                       AND (he.measurement_month + INTERVAL '1 month' - INTERVAL '1 day')
+                      THEN he.member_id END) AS numerator,
+  COUNT(DISTINCT he.member_id) AS denominator,
+  ROUND(100.0 *
+        COUNT(DISTINCT CASE WHEN e.event_dt BETWEEN he.measurement_month
+                               AND (he.measurement_month + INTERVAL '1 month' - INTERVAL '1 day')
+                            THEN he.member_id END)::numeric
+        / NULLIF(COUNT(DISTINCT he.member_id),0),2) AS compliance_pct
+FROM healthcare_ba.hedis_eligibility he
+LEFT JOIN healthcare_ba.hedis_events e
+       ON e.member_id = he.member_id
+      AND e.measure_id = he.measure_id
+GROUP BY he.measurement_month, he.measure_id
+ORDER BY he.measurement_month;
