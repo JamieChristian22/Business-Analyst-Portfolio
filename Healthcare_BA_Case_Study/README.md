@@ -55,7 +55,7 @@ The organization struggled with:
 
 ## 📂 Deliverables  
 - 📄 [Case Study PDF](Healthcare_BA_Case_Study_Visuals.pdf)  
-- 🧑‍💻 [SQL Script](Healthcare_BA_Case_Study.sql)  
+- 🧑‍💻 Full SQL Script (see below & [Healthcare_BA_Case_Study.sql](Healthcare_BA_Case_Study.sql))  
 - 📈 Dashboard-Style Visuals:  
   - ![Turnaround Time](Turnaround_Time.png)  
   - ![HEDIS Compliance](HEDIS_Compliance.png)  
@@ -63,36 +63,14 @@ The organization struggled with:
 
 ---
 
-## 🧑‍💻 SQL Script (Excerpt)  
+## 🧑‍💻 Full SQL Snippet (Nurse Time Savings)  
 
 ```sql
--- Prior Authorization Turnaround (Before vs After)
+-- Nurse Time Saved Summary
+CREATE OR REPLACE VIEW healthcare_ba.v_nurse_time_saved_summary AS
 SELECT
-  CASE WHEN request_dt::date < DATE '2025-01-15'
-       THEN 'Before' ELSE 'After' END AS phase,
-  AVG(decision_dt::date - request_dt::date) AS avg_turnaround_days
-FROM healthcare_ba.authorizations
-WHERE decision_dt IS NOT NULL
-  AND decision_status IN ('APPROVED','DENIED')
-GROUP BY phase
-ORDER BY phase;
-
--- HEDIS Compliance Rate (Monthly %)
-SELECT
-  he.measurement_month,
-  he.measure_id,
-  COUNT(DISTINCT CASE WHEN e.event_dt BETWEEN he.measurement_month
-                       AND (he.measurement_month + INTERVAL '1 month' - INTERVAL '1 day')
-                      THEN he.member_id END) AS numerator,
-  COUNT(DISTINCT he.member_id) AS denominator,
-  ROUND(100.0 *
-        COUNT(DISTINCT CASE WHEN e.event_dt BETWEEN he.measurement_month
-                               AND (he.measurement_month + INTERVAL '1 month' - INTERVAL '1 day')
-                            THEN he.member_id END)::numeric
-        / NULLIF(COUNT(DISTINCT he.member_id),0),2) AS compliance_pct
-FROM healthcare_ba.hedis_eligibility he
-LEFT JOIN healthcare_ba.hedis_events e
-       ON e.member_id = he.member_id
-      AND e.measure_id = he.measure_id
-GROUP BY he.measurement_month, he.measure_id
-ORDER BY he.measurement_month;
+   (MAX(CASE WHEN workflow_version=0 THEN minutes_spent END)/60.0) AS before_hours,
+   (MAX(CASE WHEN workflow_version=1 THEN minutes_spent END)/60.0) AS after_hours,
+   ((MAX(CASE WHEN workflow_version=0 THEN minutes_spent END)/60.0)
+    - (MAX(CASE WHEN workflow_version=1 THEN minutes_spent END)/60.0)) AS hours_saved
+FROM healthcare_ba.nurse_time_logs;
