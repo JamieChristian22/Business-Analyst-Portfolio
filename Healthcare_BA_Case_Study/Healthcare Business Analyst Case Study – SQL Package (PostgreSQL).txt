@@ -1,0 +1,235 @@
+/*
+===============================================================================
+Healthcare Business Analyst Case Study – SQL Package (PostgreSQL)
+Author: <Jamie Christian II>
+File: Healthcare_BA_Case_Study.sql
+Purpose:
+  - Minimal schema for UM, HEDIS, and Nurse time logs
+  - Indexes for performance
+  - Views for BI/visuals
+  - Example queries for:
+      1) Prior Auth Turnaround (Before vs After)
+      2) HEDIS Compliance Trend (Monthly)
+      3) Nurse Time Savings (Weekly averages)
+===============================================================================
+*/
+
+-- 0) Schema
+CREATE SCHEMA IF NOT EXISTS healthcare_ba;
+
+-- 1) Tables (DDL)
+CREATE TABLE IF NOT EXISTS healthcare_ba.members (
+  member_id      BIGINT PRIMARY KEY,
+  dob            DATE,
+  sex            TEXT,
+  plan_id        TEXT
+);
+
+CREATE TABLE IF NOT EXISTS healthcare_ba.authorizations (
+  auth_id            BIGINT PRIMARY KEY,
+  member_id          BIGINT REFERENCES healthcare_ba.members(member_id),
+  request_dt         TIMESTAMP NOT NULL,
+  decision_dt        TIMESTAMP,
+  decision_status    TEXT CHECK (decision_status IN ('APPROVED','DENIED','PENDED')),
+  auto_approved      BOOLEAN DEFAULT FALSE,
+  service_category   TEXT,
+  workflow_version   SMALLINT,            -- 0=pre, 1=post automation
+  requesting_provider_id TEXT
+);
+
+CREATE TABLE IF NOT EXISTS healthcare_ba.hedis_eligibility (
+  member_id          BIGINT REFERENCES healthcare_ba.members(member_id),
+  measure_id         TEXT,                -- e.g., 'BCS','COL','CDC-HbA1c'
+  measurement_month  DATE NOT NULL,       -- first day of month
+  eligible           BOOLEAN NOT NULL,
+  PRIMARY KEY (member_id, measure_id, measurement_month)
+);
+
+CREATE TABLE IF NOT EXISTS healthcare_ba.hedis_events (
+  member_id          BIGINT REFERENCES healthcare_ba.members(member_id),
+  measure_id         TEXT,
+  event_dt           DATE NOT NULL,
+  PRIMARY KEY (member_id, measure_id, event_dt)
+);
+
+CREATE TABLE IF NOT EXISTS healthcare_ba.nurse_time_logs (
+  nurse_id           BIGINT,
+  activity_dt        DATE NOT NULL,
+  activity_type      TEXT,                -- e.g., 'UM review','Care mgmt note'
+  minutes_spent      INTEGER NOT NULL,
+  workflow_version   SMALLINT,            -- 0=pre, 1=post
+  PRIMARY KEY (nurse_id, activity_dt, activity_type)
+);
+
+-- Optional: parameter table for go-live date so “Before/After” logic is editable
+CREATE TABLE IF NOT EXISTS healthcare_ba.config (
+  go_live_date DATE NOT NULL
+);
+
+-- Seed a default go-live date if table is empty; edit this for your project
+INSERT INTO healthcare_ba.config (go_live_date)
+SELECT DATE '2025-01-15'
+WHERE NOT EXISTS (SELECT 1 FROM healthcare_ba.config);
+
+-- 2) Helpful indexes
+CREATE INDEX IF NOT EXISTS ix_auth_member   ON healthcare_ba.authorizations(member_id);
+CREATE INDEX IF NOT EXISTS ix_auth_req      ON healthcare_ba.authorizations(request_dt);
+CREATE INDEX IF NOT EXISTS ix_auth_dec      ON healthcare_ba.authorizations(decision_dt);
+CREATE INDEX IF NOT EXISTS ix_hedis_elig    ON healthcare_ba.hedis_eligibility(measurement_month, measure_id);
+CREATE INDEX IF NOT EXISTS ix_hedis_events  ON healthcare_ba.hedis_events(event_dt, measure_id);
+CREATE INDEX IF NOT EXISTS ix_nurse_time    ON healthcare_ba.nurse_time_logs(activity_dt);
+
+-- 3) Views for analytics / BI
+
+-- 3.1 Prior Auth TAT (detail + monthly + phase summary)
+DROP VIEW IF EXISTS healthcare_ba.v_auth_tat_detail CASCADE;
+CREATE VIEW healthcare_ba.v_auth_tat_detail AS
+SELECT
+  a.auth_id,
+  a.member_id,
+  a.request_dt::date     AS request_date,
+  a.decision_dt::date    AS decision_date,
+  (a.decision_dt::date - a.request_dt::date) AS tat_days,   -- whole days
+  a.decision_status,
+  a.auto_approved,
+  a.service_category,
+  a.workflow_version,
+  CASE
+    WHEN a.request_dt::date < (SELECT go_live_date FROM healthcare_ba.config LIMIT 1)
+    THEN 'Before' ELSE 'After'
+  END AS phase
+FROM healthcare_ba.authorizations a
+WHERE a.decision_dt IS NOT NULL
+  AND a.decision_status IN ('APPROVED','DENIED');
+
+DROP VIEW IF EXISTS healthcare_ba.v_auth_tat_monthly CASCADE;
+CREATE VIEW healthcare_ba.v_auth_tat_monthly AS
+SELECT
+  DATE_TRUNC('month', request_date)::date AS month_bucket,
+  phase,
+  COUNT(*) AS total_auths,
+  AVG(tat_days)::numeric(10,2) AS avg_tat_days,
+  PERCENTILE_CONT(0.90) WITHIN GROUP (ORDER BY tat_days) AS p90_tat_days,
+  SUM(CASE WHEN auto_approved THEN 1 ELSE 0 END) AS auto_approved_count,
+  ROUND(100.0 * SUM(CASE WHEN auto_approved THEN 1 ELSE 0 END)::numeric / COUNT(*), 2) AS auto_approved_pct
+FROM healthcare_ba.v_auth_tat_detail
+GROUP BY 1,2
+ORDER BY 1,2;
+
+DROP VIEW IF EXISTS healthcare_ba.v_auth_tat_phase_summary CASCADE;
+CREATE VIEW healthcare_ba.v_auth_tat_phase_summary AS
+SELECT
+  phase,
+  COUNT(*) AS total_auths,
+  AVG(tat_days)::numeric(10,2) AS avg_tat_days,
+  PERCENTILE_CONT(0.90) WITHIN GROUP (ORDER BY tat_days) AS p90_tat_days
+FROM healthcare_ba.v_auth_tat_detail
+GROUP BY phase
+ORDER BY phase;
+
+-- 3.2 HEDIS compliance (monthly, by measure + overall)
+DROP VIEW IF EXISTS healthcare_ba.v_hedis_compliance_by_measure_month CASCADE;
+CREATE VIEW healthcare_ba.v_hedis_compliance_by_measure_month AS
+WITH denom AS (
+  SELECT
+    measurement_month,
+    measure_id,
+    COUNT(DISTINCT member_id) AS denominator
+  FROM healthcare_ba.hedis_eligibility
+  WHERE eligible
+  GROUP BY 1,2
+),
+num AS (
+  -- member is compliant if >=1 qualifying event within the measurement month
+  SELECT
+    e.measure_id,
+    he.measurement_month,
+    COUNT(DISTINCT e.member_id) AS numerator
+  FROM healthcare_ba.hedis_eligibility he
+  JOIN healthcare_ba.hedis_events e
+    ON e.member_id = he.member_id
+   AND e.measure_id = he.measure_id
+   AND e.event_dt >= he.measurement_month
+   AND e.event_dt <  (he.measurement_month + INTERVAL '1 month')
+  WHERE he.eligible
+  GROUP BY 1,2
+)
+SELECT
+  d.measurement_month AS month_bucket,
+  d.measure_id,
+  d.denominator,
+  COALESCE(n.numerator, 0) AS numerator,
+  CASE WHEN d.denominator > 0 THEN ROUND(100.0 * COALESCE(n.numerator,0)::numeric / d.denominator, 2)
+       ELSE 0 END AS compliance_pct
+FROM denom d
+LEFT JOIN num n
+  ON n.measure_id = d.measure_id
+ AND n.measurement_month = d.measurement_month
+ORDER BY 1,2;
+
+DROP VIEW IF EXISTS healthcare_ba.v_hedis_compliance_overall_month CASCADE;
+CREATE VIEW healthcare_ba.v_hedis_compliance_overall_month AS
+SELECT
+  month_bucket,
+  'ALL'::text AS measure_id,
+  SUM(denominator) AS denominator,
+  SUM(numerator)   AS numerator,
+  CASE WHEN SUM(denominator) > 0
+       THEN ROUND(100.0 * SUM(numerator)::numeric / SUM(denominator), 2)
+       ELSE 0 END AS compliance_pct
+FROM healthcare_ba.v_hedis_compliance_by_measure_month
+GROUP BY month_bucket
+ORDER BY month_bucket;
+
+-- 3.3 Nurse time savings (weekly + phase summary)
+DROP VIEW IF EXISTS healthcare_ba.v_nurse_time_weekly_phase CASCADE;
+CREATE VIEW healthcare_ba.v_nurse_time_weekly_phase AS
+SELECT
+  DATE_TRUNC('week', activity_dt)::date AS week_start,
+  CASE WHEN workflow_version = 0 THEN 'Before' ELSE 'After' END AS phase,
+  SUM(minutes_spent)                    AS total_minutes,
+  SUM(minutes_spent)/60.0               AS total_hours
+FROM healthcare_ba.nurse_time_logs
+GROUP BY 1,2
+ORDER BY 1,2;
+
+DROP VIEW IF EXISTS healthcare_ba.v_nurse_time_avg_weekly_phase CASCADE;
+CREATE VIEW healthcare_ba.v_nurse_time_avg_weekly_phase AS
+SELECT
+  phase,
+  AVG(total_hours)::numeric(10,2) AS avg_hours_per_week
+FROM healthcare_ba.v_nurse_time_weekly_phase
+GROUP BY phase
+ORDER BY phase;
+
+DROP VIEW IF EXISTS healthcare_ba.v_nurse_time_saved_summary CASCADE;
+CREATE VIEW healthcare_ba.v_nurse_time_saved_summary AS
+WITH p AS (
+  SELECT
+    MAX(CASE WHEN phase='Before' THEN avg_hours_per_week END) AS before_avg_hours,
+    MAX(CASE WHEN phase='After'  THEN avg_hours_per_week END) AS after_avg_hours
+  FROM healthcare_ba.v_nurse_time_avg_weekly_phase
+)
+SELECT
+  ROUND(GREATEST(before_avg_hours - after_avg_hours, 0), 2) AS time_saved_hours_per_week,
+  ROUND(COALESCE(after_avg_hours, 0), 2)                    AS remaining_work_hours_per_week
+FROM p;
+
+-- 4) Example queries that feed your visuals
+
+-- 4.1 Bar chart: “Before vs After” average TAT (days)
+-- Use this for the prior-authorization turnaround visualization
+SELECT * FROM healthcare_ba.v_auth_tat_phase_summary;
+
+-- 4.2 Line chart: HEDIS overall monthly compliance %
+-- Use this for the trend line visualization
+SELECT month_bucket AS month, compliance_pct
+FROM healthcare_ba.v_hedis_compliance_overall_month
+ORDER BY month;
+
+-- 4.3 Pie chart: Nurse time saved vs remaining (weekly averages)
+-- Use this to compute the two numbers for the pie chart
+SELECT * FROM healthcare_ba.v_nurse_time_saved_summary;
+
+-- 5) How to change the “Before/After” split:
+-- UPDATE healthcare_ba.config SET go_live_date = DATE 'YYYY-MM-DD';
