@@ -37,7 +37,7 @@
 ## 📄 Files
 - [📄 Full Case Study PDF](SaaS_Business_Analyst_Case_Study_Portfolio.pdf)  
 - 🖼️ Visuals:  
-  - [Workflow Diagram](Visuals/SaaS_Swimlane.png)  
+  - [Workflow Diagram](https://github.com/JamieChristian22/MyProjects/blob/main/SaaS_Business_Analyst_Case_Study_Portfolio/Swimlane_Onboarding_Pro.png)  
   - [KPI Dashboard](Visuals/SaaS_KPI_Dashboard.png)  
 
 ---
