@@ -1,4 +1,4 @@
-# 📊 Coca-Cola Social Media Insights Case Study  
+# 🥤  Coca-Cola Social Media Insights Case Study  
 
 ## 📌 Overview  
 This case study analyzes **Coca-Cola’s strategic use of social media insights** to optimize marketing campaigns, identify consumer trends, and strengthen brand positioning in a competitive beverage market.  
