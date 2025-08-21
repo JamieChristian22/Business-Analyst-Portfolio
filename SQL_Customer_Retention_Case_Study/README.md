@@ -1,8 +1,8 @@
 
-# 📊 SQL Business Analyst Case Study: Customer Retention & Sales Trends
+# 📊 SQL Business/Data Analyst Case Study: Customer Retention & Sales Trends
 
 ## 🏢 Business Scenario
-You’ve been hired by a retail company, **TrendCloth**, that sells apparel online across the U.S. They want to improve customer retention and identify purchasing trends over time. As a Business Analyst, your task is to extract insights from their SQL database to help the marketing and product teams make data-driven decisions.
+You’ve been hired by a retail company, **TrendCloth**, that sells apparel online across the U.S. They want to improve customer retention and identify purchasing trends over time. As a Business/Data Analyst, your task is to extract insights from their SQL database to help the marketing and product teams make data-driven decisions.
 
 ---
 
