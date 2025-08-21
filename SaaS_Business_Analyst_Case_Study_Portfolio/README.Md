@@ -38,7 +38,7 @@
 - [📄 Full Case Study PDF](https://github.com/JamieChristian22/MyProjects/blob/main/SaaS_Business_Analyst_Case_Study_Portfolio/Tech_SaaS_BA_Case_Study_with_Pro_Visuals.pdf  
 - 🖼️ Visuals:  
   - [Workflow Diagram](https://github.com/JamieChristian22/MyProjects/blob/main/SaaS_Business_Analyst_Case_Study_Portfolio/Swimlane_Onboarding_Pro.png)  
-  - [KPI Dashboard](Visuals/SaaS_KPI_Dashboard.png) https://github.com/JamieChristian22/MyProjects/blob/main/SaaS_Business_Analyst_Case_Study_Portfolio/Dashboard_KPI_PowerBI.png
+  - [KPI Dashboard](Visuals/SaaS_KPI_Dashboard.png) (https://github.com/JamieChristian22/MyProjects/blob/main/SaaS_Business_Analyst_Case_Study_Portfolio/Dashboard_KPI_PowerBI.png)
 
 ---
 
