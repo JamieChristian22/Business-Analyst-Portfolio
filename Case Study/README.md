@@ -67,7 +67,7 @@ This section of my portfolio highlights **three end-to-end Business Analyst case
 - Recommend dashboard framework.  
 
 **Deliverables**  
-- [📄 Full Case Study PDF](CocaCola_SocialMedia_CaseStudy/CocaCola_BA_Case_Study_Portfolio.pdf)  
+- [📄 Full Case Study PDF]([CocaCola_SocialMedia_CaseStudy/CocaCola_BA_Case_Study_Portfolio.pdf](https://github.com/JamieChristian22/MyProjects/blob/main/CocaCola_SocialMedia_CaseStudy/CocaCola_CaseStudy.pdf))  
 - Visuals:  
   [![Supply Chain KPIs](CocaCola_SocialMedia_CaseStudy/Visuals/CocaCola_Supply_Chain_Dashboard_thumb.png)](CocaCola_SocialMedia_CaseStudy/Visuals/CocaCola_Supply_Chain_Dashboard.png)  
 
