@@ -1,28 +1,45 @@
-# 📊 SaaS Business Analyst Case Study – Portfolio Project  
+# 🚀 SaaS Business Analyst Case Study
 
-This case study demonstrates how I applied **Business Analysis techniques** to optimize the **customer onboarding process** for a SaaS platform.  
-
----
-
-## 📝 Problem Statement  
-The SaaS company’s customer onboarding process was **inconsistent and lengthy**, leading to:  
-- Delayed client adoption (average 21 days instead of 14).  
-- High early churn (15% within 90 days).  
-- Communication gaps between Sales, Implementation, and Customer Success teams.  
-- No centralized system to track onboarding progress.  
+**Objective**: Optimize SaaS customer onboarding by reducing onboarding time from **21 → 14 days** and lowering churn in the first 90 days.
 
 ---
 
-## 🎯 Scope of Work  
-As the Business Analyst, I was responsible for:  
-- Mapping **As-Is** and designing **To-Be** onboarding workflows.  
-- Gathering requirements from Sales, Implementation, and Customer Success.  
-- Performing data analysis on CRM + support ticket trends.  
-- Defining KPIs and reporting needs for onboarding success.  
-- Delivering documentation and process improvement recommendations.  
+## 🧩 Problem
+- Average onboarding time = 21 days (target: 14)  
+- 15% churn rate in the first 90 days  
+- Fragmented tools, poor inter-team visibility  
 
 ---
 
-## 🔧 Techniques Applied  
-- Stakeholder Analysis (RACI)  
-- Process Map
+## 🔍 My Role
+- Conducted stakeholder interviews across Sales, Implementation, and Customer Success  
+- Mapped As-Is vs To-Be workflows  
+- Defined KPIs and built reporting framework  
+- Analyzed CRM and support ticket data  
+
+---
+
+## 📈 Results
+- Reduced onboarding time by **33%**  
+- Churn dropped by **~6%**  
+- Improved visibility across cross-functional teams  
+
+---
+
+## 🛠 Tools & Deliverables
+- Workflow Swimlane Diagram  
+- KPI Dashboard Mockup (Power BI)  
+- Requirements Traceability Matrix  
+- CRM + Support Ticket Analysis  
+
+---
+
+## 📄 Files
+- [📄 Full Case Study PDF](SaaS_Business_Analyst_Case_Study_Portfolio.pdf)  
+- 🖼️ Visuals:  
+  - [Workflow Diagram](Visuals/SaaS_Swimlane.png)  
+  - [KPI Dashboard](Visuals/SaaS_KPI_Dashboard.png)  
+
+---
+
+📌 *This project is part of my full [Business Analyst Portfolio](../README.md)*  
