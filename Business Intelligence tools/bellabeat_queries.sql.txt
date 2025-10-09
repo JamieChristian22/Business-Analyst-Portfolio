@@ -1,0 +1,158 @@
+SELECT
+  *
+FROM
+  `model-coral-463616-n9.bellabeat_fitness.bellabeat_daily_activity_raw`;
+
+CREATE OR REPLACE TABLE
+  `model-coral-463616-n9.bellabeat_fitness.bellabeat_daily_activity_cleaned` AS
+SELECT
+  Id AS user_id,
+  DATE(ActivityDate) AS activity_date,
+  CAST(TotalSteps AS INT64) AS total_steps,
+  CAST(TotalDistance AS FLOAT64) AS total_distance_miles,
+  CAST(VeryActiveMinutes AS INT64) AS very_active_minutes,
+  CAST(FairlyActiveMinutes AS INT64) AS fairly_active_minutes,
+  CAST(LightlyActiveMinutes AS INT64) AS lightly_active_minutes,
+  CAST(SedentaryMinutes AS INT64) AS sedentary_minutes,
+  CAST(Calories AS FLOAT64) AS calories_burned
+FROM
+  `model-coral-463616-n9.bellabeat_fitness.bellabeat_daily_activity_raw`
+WHERE
+  TotalSteps IS NOT NULL
+  AND Calories IS NOT NULL;
+
+SELECT
+  *
+FROM
+  `model-coral-463616-n9.bellabeat_fitness.bellabeat_daily_activity_cleaned`;
+
+[{
+  "user_id": "1644430081",
+  "activity_date": "2016-04-06",
+  "total_steps": "8046",
+  "total_distance_miles": "5.84999990463257",
+  "very_active_minutes": "18",
+  "fairly_active_minutes": "41",
+  "lightly_active_minutes": "137",
+  "sedentary_minutes": "1244",
+  "calories_burned": "2925.0"
+}, {
+  "user_id": "1644430081",
+  "activity_date": "2016-04-02",
+  "total_steps": "20237",
+  "total_distance_miles": "14.710000038147",
+  "very_active_minutes": "34",
+  "fairly_active_minutes": "141",
+  "lightly_active_minutes": "347",
+  "sedentary_minutes": "918",
+  "calories_burned": "4029.0"
+}, {
+  "user_id": "2022484408",
+  "activity_date": "2016-04-10",
+  "total_steps": "10005",
+  "total_distance_miles": "7.01999998092651",
+  "very_active_minutes": "1",
+  "fairly_active_minutes": "23",
+  "lightly_active_minutes": "339",
+  "sedentary_minutes": "1077",
+  "calories_burned": "2458.0"
+}, {
+  "user_id": "2022484408",
+  "activity_date": "2016-04-06",
+  "total_steps": "15392",
+  "total_distance_miles": "10.9300003051758",
+  "very_active_minutes": "47",
+  "fairly_active_minutes": "42",
+  "lightly_active_minutes": "258",
+  "sedentary_minutes": "1093",
+  "calories_burned": "2733.0"
+}, {
+  "user_id": "2891001357",
+  "activity_date": "2016-04-01",
+  "total_steps": "0",
+  "total_distance_miles": "0.0",
+  "very_active_minutes": "0",
+  "fairly_active_minutes": "660",
+  "lightly_active_minutes": "0",
+  "sedentary_minutes": "780",
+  "calories_burned": "4562.0"
+}, {
+  "user_id": "3977333714",
+  "activity_date": "2016-04-08",
+  "total_steps": "10226",
+  "total_distance_miles": "6.84000015258789",
+  "very_active_minutes": "0",
+  "fairly_active_minutes": "101",
+  "lightly_active_minutes": "174",
+  "sedentary_minutes": "685",
+  "calories_burned": "1524.0"
+}, {
+  "user_id": "4057192912",
+  "activity_date": "2016-04-08",
+  "total_steps": "8426",
+  "total_distance_miles": "6.15999984741211",
+  "very_active_minutes": "2",
+  "fairly_active_minutes": "120",
+  "lightly_active_minutes": "25",
+  "sedentary_minutes": "1293",
+  "calories_burned": "2360.0"
+}, {
+  "user_id": "4702921684",
+  "activity_date": "2016-04-03",
+  "total_steps": "12116",
+  "total_distance_miles": "9.82999992370605",
+  "very_active_minutes": "3",
+  "fairly_active_minutes": "57",
+  "lightly_active_minutes": "323",
+  "sedentary_minutes": "471",
+  "calories_burned": "3357.0"
+}, {
+  "user_id": "4702921684",
+  "activity_date": "2016-04-09",
+  "total_steps": "14002",
+  "total_distance_miles": "11.3599996566772",
+  "very_active_minutes": "8",
+  "fairly_active_minutes": "56",
+  "lightly_active_minutes": "381",
+  "sedentary_minutes": "407",
+  "calories_burned": "3597.0"
+}, {
+  "user_id": "5553957443",
+  "activity_date": "2016-04-05",
+  "total_steps": "11306",
+  "total_distance_miles": "7.38000011444092",
+  "very_active_minutes": "40",
+  "fairly_active_minutes": "26",
+  "lightly_active_minutes": "218",
+  "sedentary_minutes": "772",
+  "calories_burned": "2086.0"
+}]
+
+SELECT
+  COUNT(DISTINCT user_id) AS total_users,
+  ROUND(AVG(total_steps), 2) AS avg_daily_steps,
+  ROUND(AVG(calories_burned), 2) AS avg_daily_calories
+FROM
+  `model-coral-463616-n9.bellabeat_fitness.bellabeat_daily_activity_cleaned`;
+
+SELECT
+  activity_date,
+  ROUND(AVG(total_steps), 0) AS avg_steps
+FROM
+  `model-coral-463616-n9.bellabeat_fitness.bellabeat_daily_activity_cleaned`
+GROUP BY activity_date
+ORDER BY activity_date;
+
+SELECT
+  ROUND(AVG(very_active_minutes), 1) AS avg_very_active,
+  ROUND(AVG(sedentary_minutes), 1) AS avg_sedentary
+FROM
+  `model-coral-463616-n9.bellabeat_fitness.bellabeat_daily_activity_cleaned`;
+
+SELECT
+  ROUND(CORR(total_steps, calories_burned), 3) AS steps_calories_correlation
+FROM
+  `model-coral-463616-n9.bellabeat_fitness.bellabeat_daily_activity_cleaned`;
+
+
+
