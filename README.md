@@ -1,41 +1,83 @@
-# 📊 Jamie Christian | Business, Data, and BI Analyst Portfolio
-
-Welcome! 👋  
-This portfolio highlights my projects in Business Analysis, Data Analytics, and Business Intelligence. It showcases dashboards, case studies, and process documentation designed to uncover insights, streamline workflows, and support data-driven decision-making.
+# Jamie Christian | Business Analyst Portfolio
+Business, data, and BI analyst portfolio with **case studies, requirements artifacts, process models, and dashboards**—built to showcase how I turn ambiguous business problems into clear requirements, improved processes, and measurable outcomes. :contentReference[oaicite:1]{index=1}
 
 ---
 
-## 🗂 Featured Categories
+## Quick Links
+- **Business Analysis Case Studies**
+  - 🏥 **Healthcare BA Case Study** → `./Healthcare_BA_Case_Study/` :contentReference[oaicite:2]{index=2}
+  - 🧩 **SaaS Business Analyst Case Study** → `./SaaS_Business_Analyst_Case_Study_Portfolio/` :contentReference[oaicite:3]{index=3}
+  - 🥤 **Coca-Cola Social Media Case Study** → `./CocaCola_SocialMedia_CaseStudy/` :contentReference[oaicite:4]{index=4}
 
-| 📁 Folder Name                             | Description                                                                                         |
-|---------------------------------------------|-----------------------------------------------------------------------------------------------------|
-| **[Business Analyst Models and Diagrams](./Business%20Analyst%20Models%20and%20Diagrams)** | Visual models and diagrams (BPMN, workflows, ERDs) for clear communication of processes and systems.|
-| **[Business Analytics Excel](./Business%20Analytics%20Excel)**         | Excel-based analytics with pivot tables, charts, and insights for real-world business problems.       |
-| **[Business Intelligence](./Business%20Intelligence)**                 | Power BI and Tableau dashboards for data visualization and reporting.                               |
-| **[Data Analyst](./Data%20Analyst)**                                   | SQL queries, data cleaning, and analysis projects with actionable recommendations.                   |
-| **[Requirement Documentation Examples](./Requirement%20Documentation%20Examples)** | Sample BRDs and documentation supporting business analysis processes.                               |
-| **[Requirements Planning Artifacts](./Requirements%20Planning%20Artifacts)** | Planning documents and artifacts used in BA projects.                                               |
-| **[SQL Customer Retention Case Study](./SQL_Customer_Retention_Case_Study)** | SQL-based analysis to explore customer churn and retention strategies.                               |
-| **[Salesforce SalesOps Case Studies](./Salesforce_SalesOps_Case_Studies)** | Salesforce and Sales Operations-related analysis and documentation.                                  |
+- **Core BA Artifacts & Models**
+  - 📌 **Business Analyst Models & Diagrams** (BPMN, workflows, ERDs) → `./Business Analyst Models and Diagrams/` :contentReference[oaicite:5]{index=5}
+  - 🧾 **Requirements Documentation Examples** (BRD-style examples) → `./Requirement Documentation Examples/` :contentReference[oaicite:6]{index=6}
+  - 🧠 **Requirements Planning Artifacts** (stakeholders, scope, etc.) → `./Requirements Planning Artifacts/` :contentReference[oaicite:7]{index=7}
 
----
-
-## 🛠 Skills Demonstrated
-
-- 📌 **Data Cleaning and Analysis** (Excel, SQL, Google Sheets)  
-- 📌 **Business Process Modeling and Documentation** (Lucidchart, BPMN)  
-- 📌 **Data Visualization and Dashboards** (Power BI, Tableau)  
-- 📌 **Requirements Gathering and Stakeholder Collaboration**  
-- 📌 **Strategic Business Insights and Recommendations**  
+- **Analytics / BI**
+  - 📊 **Business Analytics (Excel)** → `./Business Analytics Excel/` :contentReference[oaicite:8]{index=8}
+  - 📈 **Business Intelligence (Dashboards)** → `./Business Intelligence/` :contentReference[oaicite:9]{index=9}
+  - 🧮 **SQL Customer Retention Case Study** → `./SQL_Customer_Retention_Case_Study/` :contentReference[oaicite:10]{index=10}
+  - 🧩 **Salesforce SalesOps Case Studies** → `./Salesforce_SalesOps_Case_Studies/` :contentReference[oaicite:11]{index=11}
 
 ---
 
-## 📬 Let’s Connect
+## What You’ll See Here (Recruiter-Friendly)
+### ✅ Business Analysis Deliverables
+- Problem statements, objectives, scope, assumptions, constraints
+- Stakeholder & requirements planning artifacts
+- Requirements documentation (BRD-style examples)
+- Process models (As-Is / To-Be), workflows, ERDs
+- Traceability mindset (aligning needs → solution → outcomes)
 
-📧 **Email**: [Jamiechristian331@gmail.com]  
-🔗 **LinkedIn**: [linkedin.com/in/jamiechristiananalytics](https://linkedin.com/in/jamiechristiananalytics)  
-🌐 **GitHub Portfolio**: [github.com/JamieChristian22/MyProjects](https://github.com/JamieChristian22/MyProjects)  
+### ✅ Analytics + Decision Support
+- Excel analysis (pivots, KPI summaries, insights)
+- SQL analysis (retention/churn style questions)
+- BI dashboards (Power BI / Tableau-style reporting)
 
 ---
 
-⭐ _This portfolio reflects my passion for solving business problems, leveraging data, and enabling informed decision-making._  
+## Portfolio Structure
+| Folder | What it contains |
+|---|---|
+| `Healthcare_BA_Case_Study/` | End-to-end BA case study (healthcare domain) |
+| `SaaS_Business_Analyst_Case_Study_Portfolio/` | End-to-end BA case study (SaaS domain) |
+| `CocaCola_SocialMedia_CaseStudy/` | Business problem + analysis + recommendations |
+| `Business Analyst Models and Diagrams/` | BPMN / workflows / ERDs and visual models |
+| `Requirement Documentation Examples/` | Requirements documentation samples |
+| `Requirements Planning Artifacts/` | Scope + planning artifacts used in BA work |
+| `Business Analytics Excel/` | Excel-based analysis, pivots, charts, insights |
+| `Business Intelligence/` | Dashboards and reporting artifacts |
+| `SQL_Customer_Retention_Case_Study/` | SQL-driven customer retention analysis |
+| `Salesforce_SalesOps_Case_Studies/` | Salesforce/SalesOps analysis + documentation |
+
+---
+
+## Skills Demonstrated
+- Requirements elicitation, documentation, and stakeholder communication
+- Process analysis & improvement (As-Is → To-Be)
+- KPI definition, insights, and decision support
+- Data analysis (Excel, SQL) + visualization (Power BI/Tableau)
+- Structured problem solving and business storytelling :contentReference[oaicite:12]{index=12}
+
+---
+
+## How to Navigate (Fast)
+1. Start with a **case study folder** (Healthcare or SaaS)
+2. Review the **models/diagrams** for process clarity
+3. Skim **requirements artifacts** to see documentation quality
+4. Check **Excel/SQL/BI** folders for analytical depth
+
+---
+
+## About Me
+I focus on turning business needs into clear requirements, actionable insights, and streamlined processes—bridging stakeholders, data, and delivery.
+
+---
+
+## Let’s Connect
+- Email: **Jamiechristian331@gmail.com** :contentReference[oaicite:13]{index=13}  
+- LinkedIn: **linkedin.com/in/jamiechristiananalytics** :contentReference[oaicite:14]{index=14}  
+- GitHub: **github.com/JamieChristian22**  
+
+⭐ If you’re a recruiter or hiring manager: the fastest proof is inside the **Healthcare** and **SaaS** case study folders.
