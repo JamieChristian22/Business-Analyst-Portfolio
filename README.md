@@ -1,83 +1,140 @@
-# Jamie Christian | Business Analyst Portfolio
-Business, data, and BI analyst portfolio with **case studies, requirements artifacts, process models, and dashboards**—built to showcase how I turn ambiguous business problems into clear requirements, improved processes, and measurable outcomes. :contentReference[oaicite:1]{index=1}
+# 📊 Business Analyst Portfolio – Jamie Christian
+
+Welcome to my **Business Analyst Portfolio**, showcasing real-world, end-to-end case studies across **healthcare, SaaS, CRM, SQL analytics, and business intelligence**.
+
+This repository demonstrates my ability to translate business problems into clear requirements, optimized processes, and measurable business outcomes using industry-standard BA tools and methodologies.
 
 ---
 
-## Quick Links
-- **Business Analysis Case Studies**
-  - 🏥 **Healthcare BA Case Study** → `./Healthcare_BA_Case_Study/` :contentReference[oaicite:2]{index=2}
-  - 🧩 **SaaS Business Analyst Case Study** → `./SaaS_Business_Analyst_Case_Study_Portfolio/` :contentReference[oaicite:3]{index=3}
-  - 🥤 **Coca-Cola Social Media Case Study** → `./CocaCola_SocialMedia_CaseStudy/` :contentReference[oaicite:4]{index=4}
+## 👤 About Me
 
-- **Core BA Artifacts & Models**
-  - 📌 **Business Analyst Models & Diagrams** (BPMN, workflows, ERDs) → `./Business Analyst Models and Diagrams/` :contentReference[oaicite:5]{index=5}
-  - 🧾 **Requirements Documentation Examples** (BRD-style examples) → `./Requirement Documentation Examples/` :contentReference[oaicite:6]{index=6}
-  - 🧠 **Requirements Planning Artifacts** (stakeholders, scope, etc.) → `./Requirements Planning Artifacts/` :contentReference[oaicite:7]{index=7}
+I am a **Business Analyst** with hands-on experience in:
+- Requirements elicitation & documentation
+- Process modeling (As-Is / To-Be)
+- Data analysis using SQL & Excel
+- Stakeholder collaboration
+- Agile (Scrum) delivery support
 
-- **Analytics / BI**
-  - 📊 **Business Analytics (Excel)** → `./Business Analytics Excel/` :contentReference[oaicite:8]{index=8}
-  - 📈 **Business Intelligence (Dashboards)** → `./Business Intelligence/` :contentReference[oaicite:9]{index=9}
-  - 🧮 **SQL Customer Retention Case Study** → `./SQL_Customer_Retention_Case_Study/` :contentReference[oaicite:10]{index=10}
-  - 🧩 **Salesforce SalesOps Case Studies** → `./Salesforce_SalesOps_Case_Studies/` :contentReference[oaicite:11]{index=11}
+My work focuses on **improving efficiency, reducing operational risk, and driving data-informed decisions**.
 
 ---
 
-## What You’ll See Here (Recruiter-Friendly)
-### ✅ Business Analysis Deliverables
-- Problem statements, objectives, scope, assumptions, constraints
-- Stakeholder & requirements planning artifacts
-- Requirements documentation (BRD-style examples)
-- Process models (As-Is / To-Be), workflows, ERDs
-- Traceability mindset (aligning needs → solution → outcomes)
+## 🧠 Core Skills & Tools
 
-### ✅ Analytics + Decision Support
-- Excel analysis (pivots, KPI summaries, insights)
-- SQL analysis (retention/churn style questions)
-- BI dashboards (Power BI / Tableau-style reporting)
+**Business Analysis**
+- Business Requirements Documents (BRD)
+- Functional & Non-Functional Requirements (FRD / NFR)
+- Requirements Traceability Matrix (RTM)
+- Stakeholder Analysis & RACI
+- User Stories & Acceptance Criteria
+- UAT Planning & Support
 
----
+**Process & Data**
+- BPMN Process Modeling (As-Is / To-Be)
+- SQL (data analysis & KPI tracking)
+- Excel Dashboards & Pivot Analysis
+- Root Cause Analysis
+- KPI & SLA Measurement
 
-## Portfolio Structure
-| Folder | What it contains |
-|---|---|
-| `Healthcare_BA_Case_Study/` | End-to-end BA case study (healthcare domain) |
-| `SaaS_Business_Analyst_Case_Study_Portfolio/` | End-to-end BA case study (SaaS domain) |
-| `CocaCola_SocialMedia_CaseStudy/` | Business problem + analysis + recommendations |
-| `Business Analyst Models and Diagrams/` | BPMN / workflows / ERDs and visual models |
-| `Requirement Documentation Examples/` | Requirements documentation samples |
-| `Requirements Planning Artifacts/` | Scope + planning artifacts used in BA work |
-| `Business Analytics Excel/` | Excel-based analysis, pivots, charts, insights |
-| `Business Intelligence/` | Dashboards and reporting artifacts |
-| `SQL_Customer_Retention_Case_Study/` | SQL-driven customer retention analysis |
-| `Salesforce_SalesOps_Case_Studies/` | Salesforce/SalesOps analysis + documentation |
+**Methodologies**
+- Agile / Scrum
+- SDLC
+- Continuous Improvement
 
 ---
 
-## Skills Demonstrated
-- Requirements elicitation, documentation, and stakeholder communication
-- Process analysis & improvement (As-Is → To-Be)
-- KPI definition, insights, and decision support
-- Data analysis (Excel, SQL) + visualization (Power BI/Tableau)
-- Structured problem solving and business storytelling :contentReference[oaicite:12]{index=12}
+## 📂 Featured Case Studies
+
+### 🏥 Healthcare Claims Processing Optimization
+**Domain:** Healthcare / Insurance  
+**Focus:** Process Optimization, Requirements, Data Analysis  
+
+- Reduced claim processing time by **55%**
+- Decreased rework rate from **28% → 8%**
+- Increased auto-adjudication to **78%**
+- Delivered **$1.4M in annual cost savings**
+
+📁 Folder: `Healthcare_BA_Case_Study`
 
 ---
 
-## How to Navigate (Fast)
-1. Start with a **case study folder** (Healthcare or SaaS)
-2. Review the **models/diagrams** for process clarity
-3. Skim **requirements artifacts** to see documentation quality
-4. Check **Excel/SQL/BI** folders for analytical depth
+### ☁️ SaaS Business Analyst Case Study
+**Domain:** SaaS / Operations  
+**Focus:** Workflow Optimization, Stakeholder Requirements  
+
+- Identified operational bottlenecks
+- Designed To-Be workflows
+- Improved cross-team visibility and efficiency
+
+📁 Folder: `SaaS_Business_Analyst_Case_Study`
 
 ---
 
-## About Me
-I focus on turning business needs into clear requirements, actionable insights, and streamlined processes—bridging stakeholders, data, and delivery.
+### 🧮 SQL Customer Retention Analysis
+**Domain:** Analytics / Customer Retention  
+**Focus:** SQL, KPI Analysis, Business Insights  
+
+- Analyzed churn patterns using SQL
+- Identified retention drivers
+- Delivered actionable business recommendations
+
+📁 Folder: `SQL_Customer_Retention_Case_Study`
 
 ---
 
-## Let’s Connect
-- Email: **Jamiechristian331@gmail.com** :contentReference[oaicite:13]{index=13}  
-- LinkedIn: **linkedin.com/in/jamiechristiananalytics** :contentReference[oaicite:14]{index=14}  
-- GitHub: **github.com/JamieChristian22**  
+### 🔁 Salesforce Sales Operations Case Study
+**Domain:** CRM / Sales Operations  
+**Focus:** Process Improvement, Reporting, Pipeline Analysis  
 
-⭐ If you’re a recruiter or hiring manager: the fastest proof is inside the **Healthcare** and **SaaS** case study folders.
+- Improved CRM workflow visibility
+- Enhanced reporting accuracy
+- Supported sales performance insights
+
+📁 Folder: `Salesforce_SalesOps_Case_Study`
+
+---
+
+## 📑 Documentation & Artifacts
+
+This portfolio also includes standalone BA artifacts:
+
+- **Requirements Documentation**
+  - BRD, FRD, NFR samples  
+  📁 `Requirement_Documentation_Examples`
+
+- **Planning & Governance**
+  - Stakeholder Maps, RTM, RACI  
+  📁 `Requirements_Planning_Artifacts`
+
+- **Business Analytics**
+  - Excel dashboards & KPI tracking  
+  📁 `Business_Analytics_Excel`
+
+---
+
+## 🌐 Portfolio Website
+
+This repository is also presented as a **GitHub Pages portfolio site** for recruiter viewing:
+
+➡️ `index.html` (Portfolio Homepage)
+
+---
+
+## 📫 Contact
+
+- **GitHub:** https://github.com/JamieChristian22  
+- **LinkedIn:** https://www.linkedin.com/ (add your profile)
+
+---
+
+## ⭐ How to Use This Repository
+
+Recruiters and hiring managers can:
+- Review case studies by folder
+- Examine real BA deliverables
+- See measurable business impact
+- Assess tool proficiency and methodology alignment
+
+---
+
+**Thank you for visiting my Business Analyst Portfolio.**
