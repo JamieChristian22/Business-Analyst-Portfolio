@@ -1,5 +1,0 @@
-Risk_ID,Description,Likelihood,Impact,Mitigation,Status
-R-01,HR data quality issues cause misprovisioning,Medium,High,Validation rules; reconciliation; HRIS owner sign-off,Open
-R-02,Connector failures delay provisioning/deprovisioning,Medium,High,Retry queue; alerting; monitoring; runbook,Open
-R-03,SME availability conflicts with month-end close,High,Medium,Schedule outside close; async review,Open
-R-04,SoD exceptions become unmanaged,Low,High,Dual approval; time-bound; monthly exceptions report,Open
